@@ -1,0 +1,35 @@
+.Nav_wrapper {
+    display: flex;
+    flex: 0 0 4em;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+    box-shadow: 1px 0 5px rgba(100,100,100,0.1);
+}
+
+.Nav_list {
+    list-style: none;
+    padding: 0;
+}
+
+.Nav_list__item:first-child {
+    margin-top: 0;
+}
+
+.Nav_list__item {
+    margin-top: 3em;
+}
+
+.Nav_list__item__link {
+    color: #616161;
+    font-size: 1.8em;
+}
+
+.Nav_list__item__link:hover {
+    color: #66bb6a;
+}
+
+.Nav_list__item__link_active {
+    color: #338a3e;
+}
