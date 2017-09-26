@@ -5,6 +5,7 @@ import './styles.css'
 import Nav from '../../components/Nav'
 import Charts from '../Charts'
 import Reports from '../Reports'
+import Manage from '../Manage'
 
 class App extends Component {
     render() {
@@ -15,6 +16,7 @@ class App extends Component {
                 <Switch>
                     <Route path={'/charts'} component={Charts}/>
                     <Route path={'/reports'} component={Reports}/>
+                    <Route path={'/manage'} component={Manage}/>
                 </Switch>
             </div>
         )

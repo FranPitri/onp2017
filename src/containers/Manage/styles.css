@@ -1,0 +1,32 @@
+.Manage_wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex-basis: 100%;
+}
+
+.Manage__action_box {
+    display: flex;
+}
+
+.Manage__action_button {
+    padding: .5em 1em .5em 1em;
+    background-color: #66bb6a;
+    cursor: pointer;
+    box-shadow: 1px 0 5px rgba(100,100,100,0.1);
+    border-radius: 2px;
+    font-size: .8em;
+    font-weight: 700;
+    color: #fff;
+    user-select: none;
+    margin-left: 5%;
+}
+
+.Manage__action_button:hover {
+    background-color: #338a3e;
+}
+
+.Manage__action_button:active {
+    background-color: #66bb6a;
+}
