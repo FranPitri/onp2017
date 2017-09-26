@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Route, Switch, Redirect } from 'react-router-dom'
+import { connect } from 'react-redux'
 import ReactTable from 'react-table'
 import moment from 'moment'
 import 'react-table/react-table.css'
@@ -13,46 +14,29 @@ class Reports extends Component {
         super()
         this.state = {
             data: {
-                temperature : [
-                    {
-                        date: moment().format('DD-MM-YYYY'),
-                        time: moment().format('hh:mm:ss'),
-                        value: 1,
-                        unit: 'C',
-                        status: 'activo',
-                        criadero: 'Los Pollos Hermanos'
-                    },
-                ],
-                water: [
-                    {
-                        date: moment().format('DD-MM-YYYY'),
-                        time: moment().format('hh:mm:ss'),
-                        value: 20,
-                        unit: 'ml',
-                        status: 'activo',
-                        criadero: 'Los Pollos Hermanos'
-                    },
-                ],
-                lux: [
-                    {
-                        date: moment().format('DD-MM-YYYY'),
-                        time: moment().format('hh:mm:ss'),
-                        value: 250,
-                        unit: 'lux',
-                        status: 'activo',
-                        criadero: 'Los Pollos Hermanos'
-                    },
-                ]
+                temperature : [],
+                water: [],
+                lux: []
             },
             columns: [
-                {Header: 'Fecha', accessor: 'date'},
-                {Header: 'Hora', accessor: 'time'},
-                {Header: 'Valor', accessor: 'value'},
-                {Header: 'Unidad', accessor: 'unit'},
-                {Header: 'Estado', accessor: 'status'},
+                {Header: 'Fecha', accessor: 'fecha'},
+                {Header: 'Hora', accessor: 'hora'},
+                {Header: 'Valor', accessor: 'valor'},
+                {Header: 'Unidad', accessor: 'unidad'},
+                {Header: 'Estado', accessor: 'estado'},
                 {Header: 'Criadero', accessor: 'criadero'},
             ]
         }
+    }
+
+    componentWillReceiveProps(props) {
+        this.setState({
+            data: {
+                temperature: props.temperature,
+                water: props.water,
+                lux: props.lux,
+            }
+        })
     }
 
     render() {
@@ -91,4 +75,10 @@ class Reports extends Component {
     }
 }
 
-export default Reports
+const mapStateToProps = (state) => ({
+    temperature: state.data.temperature,
+    water: state.data.water,
+    lux: state.data.lux,
+})
+
+export default connect(mapStateToProps)(Reports)

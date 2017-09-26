@@ -1,5 +1,9 @@
 import React, { Component } from 'react'
 import { Switch, Route, Redirect } from 'react-router-dom'
+import { bindActionCreators } from 'redux'
+import {connect} from 'react-redux'
+import { fetchTemperature, fetchWater, fetchLux } from '../../actions/dataFetch'
+import { withRouter } from 'react-router'
 import './styles.css'
 
 import Nav from '../../components/Nav'
@@ -8,6 +12,13 @@ import Reports from '../Reports'
 import Manage from '../Manage'
 
 class App extends Component {
+
+    componentWillMount() {
+        this.props.fetchTemperature()
+        this.props.fetchWater()
+        this.props.fetchLux()
+    }
+
     render() {
         return (
             <div className="App">
@@ -23,4 +34,10 @@ class App extends Component {
     }
 }
 
-export default App
+const mapDispatchToProps = (dispatch) => ({
+    fetchTemperature: bindActionCreators(fetchTemperature, dispatch),
+    fetchWater: bindActionCreators(fetchWater, dispatch),
+    fetchLux: bindActionCreators(fetchLux, dispatch)
+})
+
+export default withRouter(connect(() => ({}), mapDispatchToProps)(App))

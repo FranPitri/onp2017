@@ -1,5 +1,8 @@
 import React, { Component } from 'react'
 import { Route, Switch, Redirect } from 'react-router-dom'
+import { connect } from 'react-redux'
+import {bindActionCreators} from 'redux'
+import { deleteData } from '../../actions/manageData'
 import 'react-table/react-table.css'
 import './styles.css'
 
@@ -24,11 +27,15 @@ class Manage extends Component {
                         <option value={''}>----</option>
                         <option value={'reset'}>Reset data</option>
                     </select>
-                    <div className={'Manage__action_button'}>Apply</div>
+                    <div className={'Manage__action_button'} onClick={() => {this.props.del(this.props.location.pathname.split('/').slice(-1)[0])}}>Apply</div>
                 </div>
             </div>
         )
     }
 }
 
-export default Manage
+const mapDispatchToProps = (dispatch) => ({
+    del: bindActionCreators(deleteData, dispatch)
+})
+
+export default connect(() => ({}), mapDispatchToProps)(Manage)
