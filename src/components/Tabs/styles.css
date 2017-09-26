@@ -1,0 +1,43 @@
+.Tabs_wrapper {
+    display: flex;
+    flex: 0 0 4em;
+    width: 20vw;
+    margin: 2%;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+    border-radius: 2px;
+    box-shadow: 1px 0 5px rgba(100,100,100,0.1);
+}
+
+.Tabs_list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+}
+
+.Tabs_list__item:first-child {
+    margin-left: 0;
+}
+
+.Tabs_list__item {
+    margin-left: 3em;
+}
+
+.Tabs_list__item__link {
+    color: #616161;
+    font-size: 1.8em;
+}
+
+.Tabs_list__item__link_active_temp {
+    color: #f44336;
+}
+
+.Tabs_list__item__link_active_water {
+    color: #42a5f5;
+}
+
+.Tabs_list__item__link_active_lux {
+    color: #ffee58;
+}

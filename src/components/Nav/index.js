@@ -7,7 +7,7 @@ import {
 } from 'react-icons/lib/md'
 import './styles.css'
 
-const Nav = ({match}) => (
+const Nav = () => (
     <div className={'Nav_wrapper'}>
         <ul className={'Nav_list'}>
             <li className={'Nav_list__item'}>
